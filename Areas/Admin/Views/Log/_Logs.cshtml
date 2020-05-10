@@ -1,0 +1,34 @@
+﻿@model ShopGiacomini.Areas.Admin.ViewModels.LogViewModels.IndexLogViewModel
+@using ShopGiacomini.Helpers
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Logs.FirstOrDefault().Message)</th>
+
+
+            <th>@Html.DisplayNameFor(model => model.Logs.FirstOrDefault().Level)</th>
+
+
+            <th>@Html.DisplayNameFor(model => model.Logs.FirstOrDefault().Date)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Logs)
+        {
+            <tr>
+                <td>@item.Message</td>
+
+                <td>@item.Level</td>
+                <td>
+                    @item.Date.ToString("dd.MM.yyyy HH:mm")
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+<div>
+    @Html.PaginationAjax(Model.Pager)
+</div>

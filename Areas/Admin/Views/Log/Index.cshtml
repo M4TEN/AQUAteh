@@ -1,0 +1,13 @@
+﻿@model ShopGiacomini.Areas.Admin.ViewModels.LogViewModels.IndexLogViewModel
+
+@{
+    ViewBag.Title = "Логи";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="d-flex justify-content-between align-items-center my-3">
+    <h2>@ViewBag.Title</h2>
+</div>
+@using (Ajax.BeginForm("GetLogs", "Log", new AjaxOptions { UpdateTargetId = "results" }))
+{
+    <div id="results">@Html.Partial("_Logs", Model)</div>
+}
